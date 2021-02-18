@@ -4,7 +4,7 @@
 * **Decisions** (D)
 * **Information** (I) - everything else of interest.
  
-### Date : 
+### Date : 16-02-2021
 ### Time : 5:00 pm
 ### Topic: Fourth client meet
 ### Attendees: Pranav,Aryan,Meghasyam,Kalyan
