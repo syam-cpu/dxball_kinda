@@ -9,8 +9,13 @@ router.post("/register", (req, res) => {
   const newReport = new Report({
     lr: req.body.lr,
     rr: req.body.rr,
-    data: req.body.data,
-    check_id: req.body.doctor_id
+    check_id: req.body.doctor_id,
+    Fixation_Monitor : req.body.Fixation_Monitor,
+    Fixation_Target : req.body.Fixation_Target,
+    Stimulus : req.body.Stimulus,
+    Background : req.body.Background,
+    Strategy : req.body.Strategy,
+    Visual_acuity : req.body.Visual_acuity
   });
   
   const newPatient = new Patient({
