@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class grid : MonoBehaviour
 {
-    float timer;
+    // float timer;
     Vector3 endPos;
+
+    int i = 0;
+    bool[] boolarr = new bool[16];
 
     Vector3[] positionArray = new [] { 
         new Vector3(0.5f, 1.5f, 0), 
@@ -29,8 +32,6 @@ public class grid : MonoBehaviour
     };
            
 
-    // int i = 0;
-
     void Start(){
         Debug.Log("VFT has started");
         endPos = new Vector3(0,0,0);
@@ -38,16 +39,30 @@ public class grid : MonoBehaviour
         StartCoroutine("follow");
     }
 
+    void Update() {
+        if ((Input.GetKeyDown(KeyCode.S)) ){ 
+            boolarr[i] = true; 
+            Debug.Log("click simulated on i = " + i);
+        }
+    }
     IEnumerator follow(){
         foreach(Vector3 pos in positionArray){
             yield return StartCoroutine(move(pos));
+            i++;
         }
+        yield return StartCoroutine("endtest");
     }
 
     IEnumerator move(Vector3 dest){
         transform.position = dest;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
     }
 
-
+    IEnumerator endtest() {
+        Debug.Log("VFT has ended");
+        foreach(bool x in boolarr){
+            Debug.Log(x);
+        }
+        yield return new WaitForSeconds(0.01f);
+    }
 }
